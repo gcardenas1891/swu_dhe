@@ -1,6 +1,6 @@
 # Input ..................................................................
-# Directories
-path_swu = './data/inputs/thermoelectric_cooling_water.xlsx'                         # Location of cooilind water or net electricity generation datasets from EIA
+path_swu = './data/inputs/datasets_regional-scale.xlsx'                              # Location of cooiling water or net electricity generation datasets from EIA
+dataset  = 'Water'                                                                   # Type of dataset to evaluate: {'Water':cooling water, 'Electricity':net electricity production}
 path_dhe = './data/dhe/compounds_W5E5-GSIM-GRDC_30arcmin_monthly_1990-2019.nc'       # Location of identified extreme events (hydrological droughts and heatwaves)
 path_out = './data/analysis/'                                                        # Location of outputs
 
@@ -30,7 +30,7 @@ def detrending_series(ts):
 print('> Pre-processing started')
 # Opening SWU data
 df_coor = pandas.read_excel(path_swu, sheet_name='Coords', index_col='ID')
-df_data = pandas.read_excel(path_swu, sheet_name='Data', index_col=0)
+df_data = pandas.read_excel(path_swu, sheet_name=dataset, index_col=0)
 
 # Opening DHE dataset
 ds_dhe = xarray.open_dataset(path_dhe)
@@ -101,9 +101,8 @@ for station in stations:
 print('')
 
 # Exporting results
-tag = path_swu.split('\\')[-1].split('.')[0].split('_')[1]
-dim = 'withd' if tag == 'cooling' else 'prod'
-t1, t2 = str(dates[0].year), str(dates[-1].year)
+tag, dim = ('cooling','withd') if dataset == 'Water' else ('electricity','prod')
+t1, t2 = str(max(df_data.index[0].year, dates[0].year)), str(min(df_data.index[-1].year, dates[-1].year))
 df_out = df_out.set_index(keys=['lon','lat']).dropna(how='all', axis=0).reset_index(drop=False)
 df_out.to_csv(os.path.join(path_out,f'regional_{dim}_elec-{tag}_{t1}-{t2}.csv'), sep=';', index=False)
 
