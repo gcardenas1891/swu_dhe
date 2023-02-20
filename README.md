@@ -26,38 +26,25 @@ water use responses during droughts, heatwaves and conpound events.
 ### Input files
 Input files can be obtain from Zenodo (XXXXXXXXXXXXXX), in the folder '/inputs':
     - gsim-grdc_discharges.csv: GSIM and GRDC combined dataset
-    - datasets_regional-scale.xlsx: EIA data of power plants (cooling water withdrawals
-	and net electricity production)
+    - datasets_regional-scale.xlsx: EIA data of power plants (cooling water withdrawals and net electricity production)
     - datasets_local-scale.xlsx: compilation of city-scale water use records
 Other input files required:
-    - Global reconstructed water use data for 1971-2010 v2.0 (Huang et al. (2018), 
-	https://doi.org/10.5281/zenodo.1209296)
-    - WFDE5 over land merged with ERA5 over the ocean v2.0: Daily Maximum Near-
-	Surface Air Temperature (Lange et al. (2021),
-	https://data.isimip.org/datasets/38d4a8f4-12e8-44ff-afe3-0c7ce0e0dad6/)
-    - European Space Agency - Climate Change Initiative: Soil Moisture v6.1 (Dorigo
-	et al. (2017), https://www.esa-soilmoisture-cci.org/index.php?q=dataregistration)
-    - Global Land Evaporation Amsterdam Model v3.5a: Root-zone soil moisture
-	(Martens et al. (2017), https://www.gleam.eu/)
-    - The Global Streamflow Indices and Metadata Archive - Part 1: Station catalog
-	and Catchment boundary (Do et al. (2018), https://doi.pangaea.de/10.1594/PANGAEA.887477)
-Download these files and place them in folder '/inputs'. Datasets downloaded sliced by
-time (W5E5 tasmax, ESA CCI SM and GLEAM SMroot) must be merged into single files that
-cover the entire time of analysis (e.g., 1990-2019).
+    - Global reconstructed water use data for 1971-2010 v2.0 (Huang et al. (2018), https://doi.org/10.5281/zenodo.1209296)
+    - WFDE5 over land merged with ERA5 over the ocean v2.0: Daily Maximum Near-Surface Air Temperature (Lange et al. (2021),https://data.isimip.org/datasets/38d4a8f4-12e8-44ff-afe3-0c7ce0e0dad6/)
+    - European Space Agency - Climate Change Initiative: Soil Moisture v6.1 (Dorigoet al. (2017), https://www.esa-soilmoisture-cci.org/index.php?q=dataregistration)
+    - Global Land Evaporation Amsterdam Model v3.5a: Root-zone soil moisture(Martens et al. (2017), https://www.gleam.eu/)
+    - The Global Streamflow Indices and Metadata Archive - Part 1: Station catalogand Catchment boundary (Do et al. (2018), https://doi.pangaea.de/10.1594/PANGAEA.887477)
+Download these files and place them in folder '/inputs'. Datasets downloaded sliced by time (W5E5 tasmax, ESA CCI SM and GLEAM SMroot) must be merged into single files that cover the entire time of analysis (e.g., 1990-2019).
 
 ### Drought-Heatwave events (DHE) identification
 Scripts: heatwaves_W5E5.py, droughts_GSIM-GRDC.py, droughts_CCI-GLEAM.py, compound_events.py
 Modify the input and output directories accordingly to user's requirements.
-Parameters used to identify extreme events could be modified in the section 'Input'
-in each script. Details on the parameters used can be found in the manuscript.
+Parameters used to identify extreme events could be modified in the section 'Input' in each script. Details on the parameters used can be found in the manuscript.
 Other important information about the scripts:
-    - first, run scripts that identify independent extreme events (heatwaves_W5E5.py,
-	droughts_GSIM-GRDC.py, droughts_CCI-GLEAM.py).
-    - 'compound_events.py' must be run after the other independent extreme event files
-	were generated.
+    - first, run scripts that identify independent extreme events (heatwaves_W5E5.py, droughts_GSIM-GRDC.py, droughts_CCI-GLEAM.py).
+    - 'compound_events.py' must be run after the other independent extreme event files were generated.
     - 'extremes.py' contain tools required for the analysis; it is not needed to be run.
-Resulting datasets of identified extreme events contain tags in the file name indicating
-the parameters considered during calculation.
+Resulting datasets of identified extreme events contain tags in the file name indicating the parameters considered during calculation.
 By default, generated files are stored in folder '/dhe'.
 
 ### Analysis of sectoral water use responses
@@ -65,8 +52,7 @@ Scripts: analysis_global-scale.py, analysis_regional-scale.py, analysis_local-sc
 Modify the input and output directories accordingly to user's requirements.
 Only 'analysis_global-scale.py' allows to modify the period of analysis.
 By default, generated files are stored in folder '/analysis'.
-File names include the water dimension, sector and period of interest evaluated, except
-for local-scale results, which varies by city and data availability.
+File names include the water dimension, sector and period of interest evaluated, except for local-scale results, which varies by city and data availability.
 
 ## Contact
 For further questions, please contact Gabriel Cardenas (g.a.cardenasbelleza@uu.nl).
