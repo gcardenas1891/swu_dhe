@@ -23,7 +23,7 @@ The scripts here allow to reproduce the calculations and analysis of sectoral wa
 
 ## Configuration
 ### Input files
-Input files can be obtain from Zenodo (**XXXXXXXXXXXXXX**), in the folder '**/inputs**':
+Input files can be obtain from Zenodo (**10.5281/zenodo.7657304**), in the folder '**/inputs**':
 -    **gsim-grdc_discharges.csv**: GSIM and GRDC combined dataset
 -    **datasets_regional-scale.xlsx**: EIA data of power plants (cooling water withdrawals and net electricity production)
 -    **datasets_local-scale.xlsx**: compilation of city-scale water use records
