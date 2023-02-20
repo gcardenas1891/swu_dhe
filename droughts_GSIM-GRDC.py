@@ -1,6 +1,6 @@
 # Input ..................................................................
 # Directories
-path_dis  = './data/inputs/GSIM-GRDC_discharges.csv'          # Discharge dataset: GRDC and GSIM combined
+path_dis  = './data/inputs/gsim-grdc_discharges.csv'          # Discharge dataset: GRDC and GSIM combined
 path_gsim = './data/inputs/GSIM_metadata/'                    # Complete GSIM dataset directory
 
 # Time-series and spatial parameters
