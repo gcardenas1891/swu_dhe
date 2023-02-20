@@ -103,7 +103,7 @@ print('')
 # Exporting results
 tag = path_swu.split('\\')[-1].split('.')[0].split('_')[1]
 dim = 'withd' if tag == 'cooling' else 'prod'
-t1, t2 = str(date[0].year), str(date[-1].year)
+t1, t2 = str(dates[0].year), str(dates[-1].year)
 df_out = df_out.set_index(keys=['lon','lat']).dropna(how='all', axis=0).reset_index(drop=False)
 df_out.to_csv(os.path.join(path_out,f'regional_{dim}_elec-{tag}_{t1}-{t2}.csv'), sep=';', index=False)
 
