@@ -1,9 +1,7 @@
 # Input ..................................................................
 # Directories
-path_dis = './data/inputs/GSIM-GRDC_discharges.csv'                                        # Discharge dataset: GRDC and GSIM combined
-path_id1 = './data/inputs/GSIM_metadata/GSIM_catalog/GSIM_metadata.csv'                    # Dictionary with stations metadata
-path_id2 = './data/inputs/GSIM_metadata/GSIM_catalog/GSIM_catchment_characteristics.csv'   # Dictionary with information of associated catchments
-path_bsn = './data/inputs/GSIM_metadata/GSIM_catchments'                                   # Location of catchments shapefiles
+path_dis  = './data/inputs/GSIM-GRDC_discharges.csv'          # Discharge dataset: GRDC and GSIM combined
+path_gsim = './data/inputs/GSIM_metadata/'                    # Complete GSIM dataset directory
 
 # Time-series and spatial parameters
 t_frame = [1990,2010]     # Period of analysis: [starting_year. ending_year]
@@ -61,7 +59,7 @@ def export_dataset(xa, var, lats, lons, dates, perc, path_out, t_frame, t_scale,
     res = int(abs(lons[0]-lons[1]) * 60)
     perc = int(perc*100)
     encode = {var: {'dtype':'float32', 'zlib':True, 'complevel':9}}
-    ds.to_netcdf(f'{path_out}\\{var}_GSIM-GRDC_{res}arcmin_{time_dict[t_scale]}_{t_frame[0]}-{t_frame[1]}_p={perc}%_gaps={int(t_gaps*100)}%.nc', encoding=encode)
+    ds.to_netcdf(f'{path_out}/{var}_GSIM-GRDC_{res}arcmin_{time_dict[t_scale]}_{t_frame[0]}-{t_frame[1]}_p={perc}%_gaps={int(t_gaps*100)}%.nc', encoding=encode)
 
 # Pre-processing .........................................................
 print('  Pre-processing started...')
@@ -70,8 +68,8 @@ df = pandas.read_csv(path_dis, sep=';', index_col=0).T
 df.index = pandas.to_datetime(df.index)
 
 # Opening index discharge dataframes and formatting
-idx1 = pandas.read_csv(path_id1, sep=',', index_col='gsim.no')
-idx2 = pandas.read_csv(path_id2, sep=',', index_col='gsim.no')
+idx1 = pandas.read_csv(f'{path_gsim}/GSIM_catalog/GSIM_metadata.csv'), sep=',', index_col='gsim.no')
+idx2 = pandas.read_csv(f'{path_gsim}/GSIM_catalog/GSIM_catchment_characteristics.csv'), sep=',', index_col='gsim.no')
 idx = pandas.concat([idx1, idx2], axis=1)
 
 # Creating base grid
@@ -118,7 +116,7 @@ idx_dict, dis_dict = dict(zip(df_idx.index, stations)), dict(zip(stations, df_id
 # Defining influence area of each station: catchments
 da = numpy.full([len(lats), len(lons)], numpy.nan)
 for station in stations:
-    filename = f'{path_bsn}/{station.lower()}.shp'
+    filename = f'{path_gsim}/GSIM_catchments/{station.lower()}.shp'
     
     # Importing basin shapefile and framing base grid extent
     if os.path.exists(filename):
