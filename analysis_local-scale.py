@@ -1,6 +1,6 @@
 # Input ..................................................................
 # Datasets
-path_swu = './data/swu/datasets_local-scale.xlsx'                                           # Location of local-scale summary dataset
+path_swu = './data/inputs/datasets_local-scale.xlsx'                                        # Location of local-scale summary dataset
 path_htw = './data/dhe/heatwaves_W5E5_30arcmin_monthly_1990-2019_p=90%.nc'                  # Location of identified heatwaves
 path_drt = './data/dhe/droughts_GSIM-GRDC_30arcmin_monthly_1990-2019_p=20%_gaps=25%.nc'     # Location of identified hydrological droughts
 path_out = './data/analysis/'                                                               # Location of outputs
