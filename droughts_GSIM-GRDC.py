@@ -68,8 +68,8 @@ df = pandas.read_csv(path_dis, sep=';', index_col=0).T
 df.index = pandas.to_datetime(df.index)
 
 # Opening index discharge dataframes and formatting
-idx1 = pandas.read_csv(f'{path_gsim}/GSIM_catalog/GSIM_metadata.csv'), sep=',', index_col='gsim.no')
-idx2 = pandas.read_csv(f'{path_gsim}/GSIM_catalog/GSIM_catchment_characteristics.csv'), sep=',', index_col='gsim.no')
+idx1 = pandas.read_csv(f'{path_gsim}/GSIM_catalog/GSIM_metadata.csv', sep=',', index_col='gsim.no')
+idx2 = pandas.read_csv(f'{path_gsim}/GSIM_catalog/GSIM_catchment_characteristics.csv', sep=',', index_col='gsim.no')
 idx = pandas.concat([idx1, idx2], axis=1)
 
 # Creating base grid
