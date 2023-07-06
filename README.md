@@ -1,5 +1,5 @@
 # swu_dhe - Sectoral water use responses to droughts and heatwaves
-The scripts here allow to reproduce the calculations and analysis of sectoral water use responses during droughts, heatwaves and conpound events.
+The scripts here allow to reproduce the calculations and analysis of sectoral water use responses during droughts, heatwaves and compound events.
 
 ## Requirements
     - python 3.9.12
@@ -18,14 +18,17 @@ The scripts here allow to reproduce the calculations and analysis of sectoral wa
     - droughts_CCI-GLEAM.py
     - compound_events.py
     - analysis_global-scale.py
-    - analysis_regional-scale.py
+    - analysis_global-country-scale.py
+    - analysis_country-scale.py
     - analysis_local-scale.py
 
 ## Configuration
 ### Input files
 Input files can be obtain from Zenodo (**10.5281/zenodo.7657304**), in the folder '**/inputs**':
 -    **gsim-grdc_discharges.csv**: GSIM and GRDC combined dataset
--    **datasets_regional-scale.xlsx**: EIA data of power plants (cooling water withdrawals and net electricity production)
+-    **datasets_global-scale_aquastat.csv**: AQUASTAT water withdrawal data at country level
+-    **datasets_country-scale_usgs.csv**: USGS water withdrawal data at county level
+-    **datasets_country-scale_useia.xlsx**: EIA data of power plants (cooling water withdrawals and net electricity production)
 -    **datasets_local-scale.xlsx**: compilation of city-scale water use records
     
 Other input files required:
@@ -53,9 +56,10 @@ Resulting datasets of identified extreme events contain tags in the file name in
 By default, generated files are stored in folder **'/dhe'**.
 
 ### Analysis of sectoral water use responses
-Scripts: **analysis_global-scale.py**, **analysis_regional-scale.py**, **analysis_local-scale.py**.
+Scripts: **analysis_global-scale.py**, **analysis_global-country-scale.py**, **analysis_country-scale.py**, **analysis_local-scale.py**.
 Modify the input and output directories accordingly to user's requirements.
 Only '**analysis_global-scale.py**' allows to modify the period of analysis.
+Script '**analysis_global-country-scale.py**' allows analysis for AQUASTAT and USGS datasets.
 By default, generated files are stored in folder '**/analysis**'.
 File names include the water dimension, sector and period of interest evaluated, except for local-scale results, which varies by city and data availability.
 
