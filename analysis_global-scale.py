@@ -158,6 +158,6 @@ for sector in swu_files:
 ## Exporting
     df_out[['lon','lat']] = df_out.index.tolist()
     df_out = df_out.loc[:,['lon','lat'] + df_out.columns[:-2].tolist()].reset_index(drop=True)
-    df_out.to_csv(os.path.join(path_out,f'global_{sector}_{period[0]}-{period[1]}.csv'), sep=';', index=False)
+    df_out.to_csv(os.path.join(path_out,f'global_huang_{sector}_{period[0]}-{period[1]}.csv'), sep=';', index=False)
     
 print('Done!')
