@@ -1,7 +1,7 @@
 # Input ..................................................................
-path_swu = './data/inputs/datasets_regional-scale.xlsx'                              # Location of cooiling water or net electricity generation datasets from EIA
+path_swu = './data/inputs/datasets_country-scale_useia.xlsx'                         # File location of cooling water or net electricity generation datasets from EIA
 dataset  = 'Water'                                                                   # Type of dataset to evaluate: {'Water':cooling water, 'Electricity':net electricity production}
-path_dhe = './data/dhe/compounds_W5E5-GSIM-GRDC_30arcmin_monthly_1990-2019.nc'       # Location of identified extreme events (hydrological droughts and heatwaves)
+path_dhe = './data/dhe/compounds_W5E5-GSIM-GRDC_30arcmin_monthly_1990-2019.nc'       # File location of identified extreme events (hydrological droughts and heatwaves)
 path_out = './data/analysis/'                                                        # Location of outputs
 
 # Packages ...............................................................
