@@ -104,6 +104,6 @@ print('')
 tag, dim = ('cooling','withd') if dataset == 'Water' else ('electricity','prod')
 t1, t2 = str(max(df_data.index[0].year, dates[0].year)), str(min(df_data.index[-1].year, dates[-1].year))
 df_out = df_out.set_index(keys=['lon','lat']).dropna(how='all', axis=0).reset_index(drop=False)
-df_out.to_csv(os.path.join(path_out,f'regional_{dim}_elec-{tag}_{t1}-{t2}.csv'), sep=';', index=False)
+df_out.to_csv(os.path.join(path_out,f'country_useia_{dim}_elec-{tag}_{t1}-{t2}.csv'), sep=';', index=False)
 
 print('Done!')
