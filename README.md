@@ -66,7 +66,7 @@ File names include the water dimension, sector and period of interest evaluated,
 ## Contact
 For further questions, please contact Gabriel Cardenas (g.a.cardenasbelleza@uu.nl).
 
-swu_dhe v1.0.0: [![DOI](https://zenodo.org/badge/603911501.svg)](https://zenodo.org/badge/latestdoi/603911501)
+swu_dhe v1.0.0: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8122382.svg)](https://doi.org/10.5281/zenodo.8122382)
 
 ## References
 Huang, Z., Hejazi, M., Li, X., Tang, Q., Vernon, C., Leng, G., Liu, Y., Döll, P., Eisner, S., Gerten, D., Hanasaki, N., & Wada, Y. (2018). Reconstruction of global gridded monthly sectoral water withdrawals for 1971-2010 and analysis of their spatiotemporal patterns. Hydrology and Earth System Sciences, 22(4), 2117–2133. https://doi.org/10.5194/hess-22-2117-2018
